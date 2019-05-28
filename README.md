@@ -23,5 +23,10 @@ plus précisement cette ligne : sudo -u wapt PYTHONPATH=/opt/wapt PYTHONHOME=/op
 le script python dans /script/python/script.py doit donc surrement être déplacer et le code légèrement modifié
 
 
+
+
+*Le fichier note est inutile il contient des lien vers l'api pour aider au développement
+
+
 - JEANTET Joey
 Dernière mise a jour : 28/05/2019
