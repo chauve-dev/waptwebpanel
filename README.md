@@ -27,6 +27,9 @@ le script python dans /script/python/script.py doit donc surrement être déplac
 
 *Le fichier note est inutile il contient des lien vers l'api pour aider au développement
 
+Pour la connexion :
+User admin
+Mdp waptpanel
 
 - JEANTET Joey
 Dernière mise a jour : 28/05/2019
