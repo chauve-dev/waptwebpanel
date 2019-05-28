@@ -18,7 +18,8 @@ Dans pc.php et listepc.php il faut modifier le code :
 voici le lien vers le thread expliquant comment executer script python.
 https://forum.tranquil.it/viewtopic.php?f=13&t=1834
 
-  plus précisement cette ligne : sudo -u wapt PYTHONPATH=/opt/wapt PYTHONHOME=/opt/wapt /opt/wapt/bin/python /opt/wapt/test.py
+plus précisement cette ligne : sudo -u wapt PYTHONPATH=/opt/wapt PYTHONHOME=/opt/wapt /opt/wapt/bin/python /opt/wapt/test.py
+
 le script python dans /script/python/script.py doit donc surrement être déplacer et le code légèrement modifié
 
 
