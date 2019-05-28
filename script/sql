@@ -1,0 +1,110 @@
+-- -----------------------------------------------------------------------------
+--             Génération d'une base de données pour
+--                           PostgreSQL
+--                        (23/5/2019 9:09:13)
+-- -----------------------------------------------------------------------------
+--      Nom de la base : MLR1
+--      Projet : Accueil WinDesign V17
+--      Auteur : Jeantet Joey
+--      Date de dernière modification : 23/5/2019 9:05:30
+-- -----------------------------------------------------------------------------
+
+
+-- -----------------------------------------------------------------------------
+--       TABLE : UTILISATEUR
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE UTILISATEUR
+   (
+    UTI_ID serial,
+    UTI_NOM varchar(30) NULL  ,
+    UTI_PRENOM varchar(50) NULL  ,
+    UTI_MAIL varchar(70) NULL  ,
+    UTI_USERNAME varchar(20) NULL  ,
+    UTI_PASSWORD char(32) NULL  ,
+    UTI_STATUT int4 NULL  
+,   CONSTRAINT PK_UTILISATEUR PRIMARY KEY (UTI_ID)
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       TABLE : PC
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE PC
+   (
+    PC_ID serial,
+    SAL_ID int4 NOT NULL  ,
+    PC_NOM varchar(15) NOT NULL  
+,   CONSTRAINT PK_PC PRIMARY KEY (PC_ID)
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE PC
+-- -----------------------------------------------------------------------------
+
+CREATE  INDEX I_FK_PC_SALLE
+     ON PC (SAL_ID)
+    ;
+
+-- -----------------------------------------------------------------------------
+--       TABLE : SALLE
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE SALLE
+   (
+    SAL_ID serial,
+    SAL_NOM varchar(20) NULL  ,
+    SAL_DESC varchar(255) NULL  
+,   CONSTRAINT PK_SALLE PRIMARY KEY (SAL_ID)
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       TABLE : ACCÈS
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE ACCÈS
+   (
+    UTI_ID int8 NOT NULL  ,
+    SAL_ID int4 NOT NULL  
+,   CONSTRAINT PK_ACCÈS PRIMARY KEY (UTI_ID, SAL_ID)
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE ACCÈS
+-- -----------------------------------------------------------------------------
+
+CREATE  INDEX I_FK_ACCÈS_UTILISATEUR
+     ON ACCÈS (UTI_ID)
+    ;
+
+CREATE  INDEX I_FK_ACCÈS_SALLE
+     ON ACCÈS (SAL_ID)
+    ;
+
+
+-- -----------------------------------------------------------------------------
+--       CREATION DES REFERENCES DE TABLE
+-- -----------------------------------------------------------------------------
+
+
+ALTER TABLE PC ADD 
+     CONSTRAINT FK_PC_SALLE
+          FOREIGN KEY (SAL_ID)
+               REFERENCES SALLE (SAL_ID);
+
+ALTER TABLE ACCÈS ADD 
+     CONSTRAINT FK_ACCÈS_UTILISATEUR
+          FOREIGN KEY (UTI_ID)
+               REFERENCES UTILISATEUR (UTI_ID);
+
+ALTER TABLE ACCÈS ADD 
+     CONSTRAINT FK_ACCÈS_SALLE
+          FOREIGN KEY (SAL_ID)
+               REFERENCES SALLE (SAL_ID);
+
+
+-- -----------------------------------------------------------------------------
+--                FIN DE GENERATION
+-- -----------------------------------------------------------------------------
+INSERT INTO UTILISATEUR (UTI_NOM, UTI_PRENOM, UTI_MAIL, UTI_USERNAME, UTI_PASSWORD, UTI_STATUT) values
+('System', 'Admin', 'admin@admin.admin', 'admin', '824cf62769c55d2513c51cf5e4942747', 1);
