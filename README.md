@@ -7,6 +7,7 @@ Pour l'installer il faut :
   2. installer la bdd sur le serveur (script dans /script/sql)
   3. modifier les fichiers /script/apiconnect.php et /script/sqlconnect.php pour y apporter les modification nécessaire au fonctionnement sur votre serveur
   4. installer le site sur un serveur web ayant PHP configurer pour utiliser postgres
+  5. le script python doit être modifié pour y ajouter le lien vers la clé et ces infos
 
 l'ajout de paquet ne sera pas fonctionnel directement, le site ayant été développé sous windows il ne pointe pas au bon endroit.
 Dans pc.php et listepc.php il faut modifier le code : 
