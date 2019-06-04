@@ -1,6 +1,10 @@
 # wapt web panel
 Le panel web WAPT permet la gestion de gérer plusieurs utilisateurs ainsi que des groupes de pc (salles)
 L'application est actuellement en Alpha et est sujette à diverse modification et amélioration.
+ce mode de fonctionnement peut s'avérer intéressant pour des collèges ou des lycées qui n'ont pas de besoin de sécurité élevée.
+
+En effet le modèle de sécurité WAPT est basé sur la cryptographie asymétrique, avec la clef privée protégée par mot de passe et stockée sur le poste de l'admin ou sur un token externe. Dans le code, la clef ainsi que son mot de passe sont stockés directement en clair sur le serveur. Il faut prendre en compte que l'accès à la clef de signature code signing déchiffrée est globalement la même chose qu'avoir les droits admin local sur tous les postes.
+
 
 Pour l'installer il faut :
   1. accèder à la bdd du wapt et ajouter un utilisateur
