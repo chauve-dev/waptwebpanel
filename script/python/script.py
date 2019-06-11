@@ -35,17 +35,23 @@ if len(sys.argv)>2:
 	pe = PackageEntry(waptfile = "/var/www/html/wapt-host/%s.wapt" % uuid_machine)
 
 	depends = pe.depends.split(',')
-	if not len(adddepend)<=0:
+	conflicts = pe.conflicts.split(',')
+	if len(adddepend)>0:
 		for dep in adddepend:
+			if dep in pe.conflicts:
+				conflicts.remove(dep)
 		    if not dep in depends:
 		        depends.append(dep)
 
 	if not len(removedepend)<=0:
 		for dep in removedepend:
+			if not dep in pe.conflicts:
+				conflicts.append(dep)
 		    if dep in depends:
 		        depends.remove(dep)
 
 	pe.depends = ','.join(depends)
+	pe.conflicts = ','.join(conflicts)
 	pe.inc_build()
 	pe.sign_package(private_key=key,certificate = signers_bundle.certificates(),private_key_password=passwordkey)
     print("Modification réussite")
