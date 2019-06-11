@@ -116,7 +116,7 @@ if (isset($_SESSION['uti_nom'])){
 		</form>
 		<?php
 			if (sizeof($_GET)>1){
-				$macommande="script.py ".$_GET['uuid']." add";
+				$macommande="/opt/wapt/script.py ".$_GET['uuid']."add";
 				$remove="remove";
 				foreach ($_GET as $key => $value) {
 					if($value!="Valider"){
