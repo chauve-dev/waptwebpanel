@@ -11,7 +11,7 @@ if (isset($_SESSION['uti_nom'])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body style="text-align: justify;">
-	<?php include("include\menu.php"); ?>
+	<?php include("include/menu.php"); ?>
 	<div class="main">
 		<h1>Accueil de l'application</h1>
 		<p>Bienvenu sur le panel de gestion WAPT.<br>Cette application web à été conçu pour permettre la gestion d'utilisateur et de groupe d'ordinateur dans l'application <a href="https://www.tranquil.it/solutions/wapt-deploiement-d-applications/">WAPT</a>.</p>
