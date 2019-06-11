@@ -21,10 +21,10 @@ if (isset($_SESSION['uti_nom'])){
 		}
 	}
 	</script>
-<?php include('include\menu.php'); ?>
+<?php include('include/menu.php'); ?>
 	<div class="main">
 <?php
-		require "..\script\sqlconnect.php";
+		require "../script/sqlconnect.php";
 			$reponse = $bdd->query('SELECT * from utilisateur ORDER BY uti_nom');
 			if($reponse){
 			while($donnees = $reponse->fetch()){

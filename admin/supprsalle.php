@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['uti_nom'])){
 	if ($_SESSION['uti_statut']>=1){
 
-	require "..\script\sqlconnect.php";
+	require "../script/sqlconnect.php";
 	if(sizeof($_GET)>0){
 		$req = $bdd->prepare("DELETE FROM salle WHERE sal_id=:id;");
 		$req->bindParam(':id', $_GET['salle']);

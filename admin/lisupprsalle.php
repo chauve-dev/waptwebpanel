@@ -21,11 +21,11 @@ if (isset($_SESSION['uti_nom'])){
 		}
 	}
 	</script>
-<?php include('include\menu.php'); ?>
+<?php include('include/menu.php'); ?>
 	<div class="main">
 		<a style="color: yellow;"> 	&#9888; Attention une salle peut être supprimée à l'unique condition qu'elle ne contient aucun pc</a>
 <?php
-		require "..\script\sqlconnect.php";
+		require "../script/sqlconnect.php";
 			$reponse = $bdd->query('SELECT * from salle ORDER BY sal_nom');
 			if($reponse){
 			while($donnees = $reponse->fetch()){

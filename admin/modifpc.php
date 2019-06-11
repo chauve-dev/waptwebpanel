@@ -12,10 +12,10 @@ if (isset($_SESSION['uti_nom'])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<?php include('include\menu.php'); ?>
+<?php include('include/menu.php'); ?>
 	<div class="main">
 <?php
-	require "..\script\sqlconnect.php";
+	require "../script/sqlconnect.php";
 	$reponse = $bdd->query('SELECT * from pc WHERE pc_id='.$_GET['pc']);
 	$donnees = $reponse->fetch();
 	if(sizeof($_POST)>0){

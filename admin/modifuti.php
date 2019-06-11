@@ -12,11 +12,11 @@ if (isset($_SESSION['uti_nom'])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<?php include('include\menu.php'); ?>
+<?php include('include/menu.php'); ?>
 	<div class="main">
 <?php
 	if(sizeof($_POST)>0){
-		require "..\script\sqlconnect.php";
+		require "../script/sqlconnect.php";
 		
 		if ($_POST['password']==""){
 
@@ -39,7 +39,7 @@ if (isset($_SESSION['uti_nom'])){
 	var uti = [];
 	var i = 0;
 	<?php
-			 	require "..\script\sqlconnect.php";
+			 	require "../script/sqlconnect.php";
 				$reponse = $bdd->query('SELECT * from utilisateur');
 				while($donnees = $reponse->fetch()){
 					?>
@@ -69,7 +69,7 @@ if (isset($_SESSION['uti_nom'])){
 			<label for="utilisateur">Utilisateur</label>
 			<select id="utilisateur" name="utilisateur" onchange="document.getElementById('mail').value = uti[document.getElementById('utilisateur').value];">
 			 	<?php
-			 	require "..\script\sqlconnect.php";
+			 	require "../script/sqlconnect.php";
 				$reponse = $bdd->query('SELECT * from utilisateur');
 				if($reponse){
 				while($donnees = $reponse->fetch()){

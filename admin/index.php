@@ -12,7 +12,7 @@ if (isset($_SESSION['uti_nom'])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<?php include('include\menu.php'); ?>
+<?php include('include/menu.php'); ?>
 	<div class="main">
 		<h1>Accueil</h1>
 		<p>Bienvenu sur la panel administrateur.<br>Nous sommes le <?php date_default_timezone_set('Europe/Luxembourg'); echo(date('d/m/Y à H:i')) ?>.</p>
