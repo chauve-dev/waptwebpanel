@@ -12,6 +12,7 @@ Pour l'installer il faut :
   3. modifier les fichiers /script/apiconnect.php et /script/sqlconnect.php pour y apporter les modification nécessaire au fonctionnement sur votre serveur
   4. installer le site sur un serveur web ayant PHP configurer pour utiliser postgres
   5. le script python doit être modifié pour y ajouter le lien vers la clé et ces infos
+  6. Le cron doit être configuré pour executer et vider un script.sh créer par le php
 
 l'ajout de paquet ne sera pas fonctionnel directement, le site ayant été développé sous windows il ne pointe pas au bon endroit.
 Dans pc.php et listepc.php il faut modifier le code : 
@@ -31,6 +32,7 @@ le script python dans /script/python/script.py doit donc surrement être déplac
 
 
 *Le fichier note est inutile il contient des lien vers l'api pour aider au développement
+*Il est possible que le selinux empêche l'écriture du php
 
 Pour la connexion :
 User admin
