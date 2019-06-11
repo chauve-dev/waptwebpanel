@@ -14,7 +14,9 @@ Pour l'installer il faut :
   5. le script python dans /script/python doit être modifié pour y ajouter le lien vers la clé et ces infos et ensuite déplacé dans /opt/wapt/
   6. Le cron doit être configuré pour executer et vider un script.sh créer par le php :
       Exemple : dans /etc/cron.d/01wapt :
+          
           */10 * * * * wapt /var/www/html/script.sh; echo '' > /var/www/html/script.sh
+          
           le contenu de script.sh étant générer automatiquement par le php lors de modification
 
  
