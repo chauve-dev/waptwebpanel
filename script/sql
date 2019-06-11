@@ -62,23 +62,23 @@ CREATE TABLE SALLE
 --       TABLE : ACCES
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE ACCÈS
+CREATE TABLE ACCES
    (
     UTI_ID int8 NOT NULL  ,
     SAL_ID int4 NOT NULL  
-,   CONSTRAINT PK_ACCÈS PRIMARY KEY (UTI_ID, SAL_ID)
+,   CONSTRAINT PK_ACCES PRIMARY KEY (UTI_ID, SAL_ID)
    ) ;
 
 -- -----------------------------------------------------------------------------
---       INDEX DE LA TABLE ACCÈS
+--       INDEX DE LA TABLE ACCES
 -- -----------------------------------------------------------------------------
 
-CREATE  INDEX I_FK_ACCÈS_UTILISATEUR
-     ON ACCÈS (UTI_ID)
+CREATE  INDEX I_FK_ACCES_UTILISATEUR
+     ON ACCES (UTI_ID)
     ;
 
-CREATE  INDEX I_FK_ACCÈS_SALLE
-     ON ACCÈS (SAL_ID)
+CREATE  INDEX I_FK_ACCES_SALLE
+     ON ACCES (SAL_ID)
     ;
 
 
@@ -92,13 +92,13 @@ ALTER TABLE PC ADD
           FOREIGN KEY (SAL_ID)
                REFERENCES SALLE (SAL_ID);
 
-ALTER TABLE ACCÈS ADD 
-     CONSTRAINT FK_ACCÈS_UTILISATEUR
+ALTER TABLE ACCES ADD 
+     CONSTRAINT FK_ACCES_UTILISATEUR
           FOREIGN KEY (UTI_ID)
                REFERENCES UTILISATEUR (UTI_ID);
 
-ALTER TABLE ACCÈS ADD 
-     CONSTRAINT FK_ACCÈS_SALLE
+ALTER TABLE ACCES ADD 
+     CONSTRAINT FK_ACCES_SALLE
           FOREIGN KEY (SAL_ID)
                REFERENCES SALLE (SAL_ID);
 
