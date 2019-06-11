@@ -11,22 +11,16 @@ Pour l'installer il faut :
   2. installer la bdd sur le serveur (script dans /script/sql)
   3. modifier les fichiers /script/apiconnect.php et /script/sqlconnect.php pour y apporter les modification nécessaire au fonctionnement sur votre serveur
   4. installer le site sur un serveur web ayant PHP configurer pour utiliser postgres
-  5. le script python doit être modifié pour y ajouter le lien vers la clé et ces infos
-  6. Le cron doit être configuré pour executer et vider un script.sh créer par le php
+  5. le script python dans /script/python doit être modifié pour y ajouter le lien vers la clé et ces infos et ensuite déplacé dans /opt/wapt/
+  6. Le cron doit être configuré pour executer et vider un script.sh créer par le php :
+      Exemple : dans /etc/cron.d/01wapt :
+          */10 * * * * wapt /var/www/html/script.sh; echo '' > /var/www/html/script.sh
+          le contenu de script.sh étant générer automatiquement par le php lors de modification
 
-l'ajout de paquet ne sera pas fonctionnel directement, le site ayant été développé sous windows il ne pointe pas au bon endroit.
-Dans pc.php et listepc.php il faut modifier le code : 
-
-  -pc.php : L119 La variable $macommande correspond à un système windows
- 
-  -listepc.php : L51 idem
  
 voici le lien vers le thread expliquant comment executer script python.
 https://forum.tranquil.it/viewtopic.php?f=13&t=1834
 
-plus précisement cette ligne : sudo -u wapt PYTHONPATH=/opt/wapt PYTHONHOME=/opt/wapt /opt/wapt/bin/python /opt/wapt/test.py
-
-le script python dans /script/python/script.py doit donc surrement être déplacer et le code légèrement modifié
 
 
 
