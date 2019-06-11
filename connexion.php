@@ -1,6 +1,6 @@
 <!-- Développeur de l'application JEANTET Joey étudiant BTS SIO 2019 -->
 <?php
-require "script\sqlconnect.php";
+require "script/sqlconnect.php";
 if (isset($_POST['identifiant']) AND isset($_POST['password'])){
 	if($_POST['identifiant']!="" AND $_POST['password']!=""){
 	$reponse = $bdd->query('SELECT * from utilisateur where uti_username=\''.$_POST['identifiant'].'\'');
