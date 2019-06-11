@@ -11,7 +11,7 @@ if (isset($_SESSION['uti_nom'])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<?php include("include\menu.php"); ?>
+	<?php include("include/menu.php"); ?>
 	<div class="main">
 		<?php
 		require "script/apiconnect.php";
@@ -139,7 +139,7 @@ if (isset($_SESSION['uti_nom'])){
 	<div style="text-align: right;">
 	<input type="submit" class="bouton" name="submit" value="Valider" form="form1">
 	<?php 
-	require "script\sqlconnect.php";
+	require "script/sqlconnect.php";
 	$reponse = $bdd->query("SELECT * from pc where pc_nom='".strtolower($nompc)."'");
 	$donnees = $reponse->fetch();
 
