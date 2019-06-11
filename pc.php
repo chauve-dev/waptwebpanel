@@ -129,15 +129,10 @@ if (isset($_SESSION['uti_nom'])){
 					}
 				}
 				$macommande = $macommande." ".$remove;
-				$command = escapeshellcmd(".\script\python\\".$macommande);
-				$output = shell_exec($command);
-				$output = str_replace(" ", "", $output);
-				$tabout=explode("\n", $output);
-				echo("Uuid : ".$tabout[0]);
-				echo("<br>");
-				echo("Voulu : ".$tabout[1]);
-				echo("<br>");
-				echo("Non voulu : ".$tabout[2]);
+                                $file = fopen('/var/www/html/script.sh', 'a+');
+                                fwrite($file, $macommande.PHP_EOL);
+                                fclose($file);
+                                echo('La mise à jour de l\'ordinateur sera effectué dans ~10 minutes');
 			}
 		?>
 	</div>
