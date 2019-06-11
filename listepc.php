@@ -11,7 +11,7 @@ if (isset($_SESSION['uti_nom'])){
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<?php include("include\menu.php"); ?>
+	<?php include("include/menu.php"); ?>
 	<div class="main">
 		<ul>
 		<?php
@@ -23,7 +23,7 @@ if (isset($_SESSION['uti_nom'])){
 			$data=json_decode($json, true);
 			//var_dump($data);
 			foreach($data['result'] as $key => $value){
-				require "script\sqlconnect.php";
+				require "script/sqlconnect.php";
 				$reponsedroit = $bdd->query("SELECT * from acces where uti_id=".$_SESSION['uti_id']." AND sal_id=".$_GET['salle']);
 				if($reponsedroit->fetch()){
 				$reponse = $bdd->query('SELECT * from pc');
