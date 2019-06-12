@@ -36,15 +36,20 @@ if (isset($_SESSION['uti_nom'])){
 					<li><?php echo($value['computer_name']); ?></li>
 				<?php
 				if (sizeof($_GET)>1){
+							$uuid=$value['uuid'];
 							$macommande="/opt/wapt/script.py ".$value['uuid']."add";
 							$remove="remove";
 							foreach ($_GET as $key => $value) {
 								if($value!="Valider"){
 									if(strpos($key, 'voulu') === 0){
-									$macommande=$macommande." ".$value;
+										$macommande=$macommande." ".$value;
+										$req = $bddwapt->prepare("INSERT INTO hostgroups (host_id, group_name) values ('".$uuid."', '".$value."');");
+		        							$req -> execute();
 									}
 									if(strpos($key, 'nvoulu') === 0){
 										$remove=$remove." ".$value;
+										$req = $bddwapt->prepare("DELETE FROM hostgroups where host_id='".$uuid."' and group_name='".$value."';");
+	    									$req -> execute();
 									}
 								}
 							}
