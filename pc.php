@@ -15,6 +15,7 @@ if (isset($_SESSION['uti_nom'])){
 	<div class="main">
 		<?php
 		require "script/apiconnect.php";
+		require "script/sqlconnect.php";
 			$context = stream_context_create(array(
 				'http' => array(
 					'header'  => "Authorization: Basic " . base64_encode("$username:$password"))));
@@ -121,10 +122,14 @@ if (isset($_SESSION['uti_nom'])){
 				foreach ($_GET as $key => $value) {
 					if($value!="Valider"){
 						if(strpos($key, 'voulu') === 0){
-						$macommande=$macommande." ".$value;
+							$macommande=$macommande." ".$value;
+							$req = $bddwapt->prepare("INSERT INTO hostgroups (host_id, group_name) values ('".$_GET['uuid']."', '".$value."');");
+	        					$req -> execute();
 						}
 						if(strpos($key, 'nvoulu') === 0){
 							$remove=$remove." ".$value;
+							$req = $bddwapt->prepare("DELETE FROM hostgroups where host_id='".$_GET['uuid']."' and group_name='".$value."';");
+	    						$req -> execute();
 						}
 					}
 				}
