@@ -7,7 +7,7 @@ En effet le modèle de sécurité WAPT est basé sur la cryptographie asymétriq
 
 
 Pour l'installer il faut :
-  1. accèder à la bdd du wapt et ajouter un utilisateur
+  1. accèder à la bdd du serveur wapt et ajouter un utilisateur attention l'utilisateur doit avoir les droits sur la db 'wapt'
   2. installer la bdd sur le serveur (script dans /script/sql)
   3. modifier les fichiers /script/apiconnect.php et /script/sqlconnect.php pour y apporter les modification nécessaire au fonctionnement sur votre serveur
   4. installer le site sur un serveur web ayant PHP configurer pour utiliser postgres
