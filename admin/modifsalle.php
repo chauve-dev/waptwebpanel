@@ -21,17 +21,12 @@ if (isset($_SESSION['uti_nom'])){
 
 	if(sizeof($_POST)>0){
 		$nom=strtolower($_POST['nom']);
-		$reponse = $bdd->query("SELECT * from salle WHERE sal_nom='".$nom."'");
-			$res = $reponse -> fetch();
-			if($res){
-				echo('<a>Cette salle existe déjà</a>');
-			}else{
 		$req = $bdd->prepare("UPDATE salle SET sal_nom=:nom, sal_desc=:descr WHERE sal_id=".$_GET['salle']);
 		$req->bindParam(':nom', $nom);
 		$req->bindParam(':descr', $_POST['description']);
 		$req -> execute();
 		header('Location: limodifsalle.php');
-	}}
+	}
 ?>
 <div class="whitebox">
 		<form method="POST">
