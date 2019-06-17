@@ -20,18 +20,12 @@ if (isset($_SESSION['uti_nom'])){
 	$donnees = $reponse->fetch();
 	if(sizeof($_POST)>0){
 		$nom=strtolower($_POST['nom']);
-		$reponse = $bdd->query("SELECT * from pc WHERE pc_nom='".$nom."'");
-			$res = $reponse -> fetch();
-			if($res){
-				echo('<a>Ce nom est déjà pris</a>');
-			}else{
-
 		$req = $bdd->prepare("UPDATE pc SET pc_nom=:nom, sal_id=:id WHERE pc_id=".$_GET['pc']);
 		$req->bindParam(':nom', $nom);
 		$req->bindParam(':id', $_POST['id']);
 		$req -> execute();
 		header('Location: limodifpc.php');
-	}}
+	}
 ?>
 <div class="whitebox">
 		<form method="POST">
