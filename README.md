@@ -1,3 +1,6 @@
+# ATTENTION
+Oulah doucement. Tu veux vraiment utiliser ce truc ? Ce logiciel nécessite un rework complet, le code est encore disponible simplement pour s'inspirer, je ne recommande en aucun cas de l'utiliser dans l'état
+
 # wapt web panel
 Le panel web WAPT permet la gestion de gérer plusieurs utilisateurs ainsi que des groupes de pc (salles)
 L'application est actuellement en Alpha et est sujette à diverse modification et amélioration.
